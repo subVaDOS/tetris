@@ -112,3 +112,71 @@ document.getElementById('right').addEventListener('click', () => {
 document.getElementById('down').addEventListener('click', () => {
   // Add logic to move the piece down
 });
+
+let currentPiece = {
+  shape: [
+    [1, 1, 1],
+    [0, 1, 0],
+  ], // Приклад фігурки
+  x: 4, // Початкова позиція по горизонталі
+  y: 0, // Початкова позиція по вертикалі
+};
+// ...existing code...
+
+document.getElementById('left').addEventListener('click', () => {
+  moveLeft();
+});
+
+document.getElementById('rotate').addEventListener('click', () => {
+  rotatePiece();
+});
+
+document.getElementById('right').addEventListener('click', () => {
+  moveRight();
+});
+
+document.getElementById('down').addEventListener('click', () => {
+  moveDown();
+});
+
+// Функції для керування фігурками
+function moveLeft() {
+  if (draw([-1, 0], undefined, deDraw())) {
+    draw([0, 0], undefined, deDraw());
+  }
+}
+
+function rotatePiece() {
+  let prv = now[1];
+  now[1] = (now[1] + 1) % fs.split('*')[now[0]].split(':').length;
+  if (!draw([0, 0], undefined, deDraw())) {
+    now[1] = prv;
+    draw([0, 0], undefined, deDraw());
+  }
+}
+
+function moveRight() {
+  if (draw([1, 0], undefined, deDraw())) {
+    draw([0, 0], undefined, deDraw());
+  }
+}
+
+function moveDown() {
+  if (!draw([0, 1], undefined, deDraw())) {
+    if (draw([0, 0], 'on', deDraw()) || true) check();
+    if (
+      !draw(
+        [0, 0],
+        undefined,
+        (now = [Math.floor(Math.random() * fs.split('*').length), 0]),
+        (pos = [4, 0])
+      )
+    ) {
+      toV = -1;
+      alert('Your score: ' + document.querySelector('#result').innerHTML);
+    }
+  }
+}
+
+// Виклик функції для початкового відображення фігурки
+draw([0, 0], undefined, deDraw());
