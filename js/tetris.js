@@ -94,3 +94,21 @@ toF = function () {
   }, (toV = toV > 0 ? toV - 0.5 : toV));
 };
 toF((toV = 500));
+
+// ...existing code...
+
+document.getElementById('left').addEventListener('click', () => {
+  // Add logic to move the piece left
+});
+
+document.getElementById('rotate').addEventListener('click', () => {
+  // Add logic to rotate the piece
+});
+
+document.getElementById('right').addEventListener('click', () => {
+  // Add logic to move the piece right
+});
+
+document.getElementById('down').addEventListener('click', () => {
+  // Add logic to move the piece down
+});
