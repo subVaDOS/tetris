@@ -31,3 +31,55 @@
   height: 500px;
   border: solid 1px black;
 }
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+  /* Mobile styles */
+  #stack {
+    width: 100px;
+    height: 200px;
+  }
+  .brick {
+    width: 10px;
+    height: 10px;
+  }
+  .tetris-game {
+    font-size: 30px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Tablet styles */
+  #stack {
+    width: 120px;
+    height: 240px;
+  }
+  .brick {
+    width: 12px;
+    height: 12px;
+  }
+  .tetris-game {
+    font-size: 40px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Desktop styles */
+  #stack {
+    width: 130px;
+    height: 260px;
+  }
+  .brick {
+    width: 13px;
+    height: 13px;
+  }
+  .tetris-game {
+    font-size: 55px;
+    width: 800px;
+    height: 500px;
+  }
+}
