@@ -1,20 +1,22 @@
-var fs =
-    '1111:01|01|01|01*011|110:010|011|001*110|011:001|011|010*111|010:01|11|01:010|111:10|11|10*11|11*010|010|011:111|100:11|01|01:001|111*01|01|11:100|111:11|10|10:111|001',
-  now = [3, 0],
-  pos = [4, 0];
-var gP = function (x, y) {
+const fs =
+  '1111:01|01|01|01*011|110:010|011|001*110|011:001|011|010*111|010:01|11|01:010|111:10|11|10*11|11*010|010|011:111|100:11|01|01:001|111*01|01|11:100|111:11|10|10:111|001';
+let now = [3, 0];
+let pos = [4, 0];
+
+const gP = function (x, y) {
   return document.querySelector('[data-y="' + y + '"] [data-x="' + x + '"]');
 };
-var draw = function (ch, cls) {
-  var f = fs
+
+const draw = function (ch, cls) {
+  const f = fs
     .split('*')
     [now[0]].split(':')
     [now[1]].split('|')
     .map(function (a) {
       return a.split('');
     });
-  for (var y = 0; y < f.length; y++)
-    for (var x = 0; x < f[y].length; x++)
+  for (let y = 0; y < f.length; y++)
+    for (let x = 0; x < f[y].length; x++)
       if (f[y][x] == '1') {
         if (
           x + pos[0] + ch[0] > 9 ||
@@ -29,12 +31,14 @@ var draw = function (ch, cls) {
       }
   pos = [pos[0] + ch[0], pos[1] + ch[1]];
 };
-var deDraw = function () {
+
+const deDraw = function () {
   if (document.querySelectorAll('.now').length > 0)
     deDraw(document.querySelector('.now').classList.remove('now'));
 };
-var check = function () {
-  for (var i = 0; i < 20; i++)
+
+const check = function () {
+  for (let i = 0; i < 20; i++)
     if (
       document.querySelectorAll('[data-y="' + i + '"] .brick.on').length == 10
     )
@@ -44,7 +48,8 @@ var check = function () {
           Math.floor(document.querySelector('#result').innerHTML) + 10)
       );
 };
-var roll = function (ln) {
+
+const roll = function (ln) {
   if (
     false !==
       (document.querySelector('[data-y="' + ln + '"]').innerHTML =
@@ -53,6 +58,7 @@ var roll = function (ln) {
   )
     roll(ln - 1);
 };
+
 window.addEventListener(
   'keydown',
   (kdf = function (e) {
@@ -87,7 +93,8 @@ window.addEventListener(
       }
   })
 );
-toF = function () {
+
+const toF = function () {
   kdf({ keyCode: 40 });
   setTimeout(function () {
     if (toV >= 0) toF();
