@@ -48,6 +48,25 @@
     width: 100%;
     height: auto;
   }
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .controls button {
+    background-color: #4d5ae5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .controls button:active {
+    background-color: #3b47b3;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
@@ -64,6 +83,25 @@
     font-size: 40px;
     width: 100%;
     height: auto;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .controls button {
+    background-color: #4d5ae5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .controls button:active {
+    background-color: #3b47b3;
   }
 }
 
